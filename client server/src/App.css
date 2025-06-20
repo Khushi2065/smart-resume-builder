@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8faff; 
+  color: #334155; 
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(210, 20%, 90%, 0.5) 0, transparent 40%),
+    radial-gradient(at 100% 0%, hsla(240, 20%, 90%, 0.5) 0, transparent 40%),
+    radial-gradient(at 50% 100%, hsla(200, 20%, 90%, 0.5) 0, transparent 40%);
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 30px; 
+  box-sizing: border-box;
+}
+
+.App-header {
+  background: linear-gradient(to right, #7ec6be, #60bcb8); 
+  padding: 35px; 
+  color: #2a659e; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 40px; 
+  border-radius: 15px; 
+  border: 1px solid rgba(42, 101, 158, 0.1); 
+}
+
+.App-header h1 {
+  margin-bottom: 20px; 
+  font-size: 2.8em; 
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 5px rgba(42, 101, 158, 0.3);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; 
+}
+
+.action-buttons button, .action-buttons input {
+  padding: 12px 25px; 
+  border: none;
+  border-radius: 8px; 
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all 0.3s ease; 
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); 
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.action-buttons button {
+  background: linear-gradient(45deg, #3b82f6, #60a5fa); 
+  color: #ffffff;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.action-buttons button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #60a5fa, #3b82f6); 
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.action-buttons button.active {
+  background: #22c55e;
+  color: #ffffff;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+}
+
+.action-buttons button:disabled {
+  background-color: #cbd5e1; 
+  color: #8898a8;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.action-buttons input {
+  border: 1px solid #cbd5e1; 
+  padding: 11px 20px; 
+  width: 180px; 
+  background-color: #ffffff; 
+  color: #334155; 
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Added for centering typed text */
+}
+.action-buttons input::placeholder {
+  color: #94a3b8; 
+  text-align: center; /* Added for centering placeholder text */
+}
+.action-buttons input:focus {
+  border-color: #3b82f6; 
+  outline: none;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3), inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.save-message {
+  color: #16a34a; 
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-shadow: none; 
+}
+
+.App-main {
+  flex-grow: 1;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0; 
+}
+
+.form-section, .preview-section, .pdf-viewer-section {
+  width: 100%;
+  max-width: 1200px;
+  background-color: #f8fafc;
+  padding: 40px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  gap: 30px; 
+  border: 1px solid #e2e8f0; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+@media (min-width: 992px) { 
+  .form-section {
+    flex-direction: row;
+    align-items: flex-start; 
+  }
+}
+
+.form-container {
+  flex: 2; 
+  min-width: 50%;
+  padding: 30px; 
+  border: 1px solid #e2e8f0; 
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.ai-suggestions-panel {
+  flex: 1; 
+  background-color: #f0f4f8; 
+  border: 1px solid #d9e2ec; 
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 0.95em;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  max-height: 700px;
+  color: #475569; 
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.ai-suggestions-panel h2 {
+  margin-top: 0;
+  color: #d97706; 
+  font-size: 1.6em;
+  font-weight: 600;
+  text-shadow: none; 
+  border-bottom: 1px dashed rgba(217, 119, 6, 0.3);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.ai-suggestions-panel pre {
+    color: #64748b; 
+    font-family: 'Poppins', monospace;
+}
+
+.form-section h2, .form-section h3 {
+  color: #334155; 
+  margin-bottom: 25px; 
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 15px; 
+  font-size: 1.8em;
+  font-weight: 600;
+  text-shadow: none; 
+}
+
+.form-group {
+  margin-bottom: 25px; 
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px; 
+  font-weight: 500;
+  color: #475569; 
+  font-size: 0.95em;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: calc(100% - 24px); 
+  padding: 12px; 
+  border: 1px solid #cbd5e1; 
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #ffffff; 
+  color: #334155; 
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #3b82f6; 
+  outline: none;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3), inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.add-button {
+  background: linear-gradient(45deg, #22c55e, #34d399); 
+  color: #ffffff;
+  padding: 10px 18px; 
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px; 
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-button:hover {
+  background: linear-gradient(45deg, #34d399, #22c55e);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.remove-button {
+  background-color: #ef4444; 
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+  accent-color: #3b82f6; 
+}
+
+.pdf-viewer-section {
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff; 
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-viewer-section h2 {
+  margin-bottom: 25px;
+  color: #3b82f6; 
+  font-size: 2em;
+  font-weight: 600;
+  text-shadow: none; 
+}
+
+.download-pdf-button {
+  background: linear-gradient(45deg, #f97316, #fb923c); /* Warm orange gradient */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.download-pdf-button:hover {
+  background: linear-gradient(45deg, #fb923c, #f97316);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 991px) { 
+  .App {
+    padding: 20px;
+  }
+  .App-header h1 {
+    font-size: 2em;
+  }
+  .action-buttons {
+    gap: 12px;
+  }
+  .action-buttons button, .action-buttons input {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    width: auto; 
+  }
+  .action-buttons input {
+    width: 150px; 
+  }
+  .form-section {
+    padding: 30px;
+    gap: 20px;
+  }
+  .form-container, .ai-suggestions-panel {
+    padding: 20px; 
+  }
+  .form-section h2, .form-section h3 {
+    font-size: 1.5em;
+  }
+  .ai-suggestions-panel h2 {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 767px) { 
+  .App {
+    padding: 15px;
+  }
+  .App-header h1 {
+    font-size: 1.8em;
+  }
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .action-buttons button, .action-buttons input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .App-main {
+    padding: 15px;
+  }
+  .form-section {
+    padding: 25px; 
+    gap: 15px;
+  }
+  .form-container, .ai-suggestions-panel {
+    padding: 15px; 
+  }
+  .form-section h2, .form-section h3 {
+    font-size: 1.3em;
+  }
+  .ai-suggestions-panel h2 {
+    font-size: 1.2em;
+  }
+  .download-pdf-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* Print-specific styles to hide UI elements */
+@media print {
+  .App-header, /* Hides the entire header area */
+  .action-buttons, /* Hides the action buttons bar (if separate) */
+  .save-message, /* Hides any save/load messages */
+  .download-pdf-button /* Hides the download button if it's visible in the print view */
+   {
+    display: none !important; /* Use !important to ensure these styles override others */
+  }
+
+  /* Optional: Adjust main content for print */
+  .App-main {
+    padding: 0 !important; /* Remove main padding for print */
+    margin: 0 !important; /* Remove main margin for print */
+    box-shadow: none !important; /* Remove shadows for print */
+    border: none !important; /* Remove borders for print */
+    width: 100% !important; /* Ensure main content takes full width */
+    max-width: none !important; /* Remove max-width constraint */
+  }
+
+  .preview-section {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* You might also need to adjust styles for the resume content itself for optimal printing */
+  /* For example, ensuring text colors are dark for readability on paper */
+  body {
+    background-color: #fff !important; /* White background for print */
+    color: #000 !important; /* Black text for print */
+  }
+}
